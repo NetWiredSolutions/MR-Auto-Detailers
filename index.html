@@ -18,6 +18,9 @@
         .bg-gold { background-color: var(--gold); }
         .border-gold { border-color: var(--gold); }
         
+        /* Spaced out Branding */
+        .brand-spacing { letter-spacing: 0.25em; }
+
         /* Premium Blur Effects */
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
         .hero-bg {
@@ -33,96 +36,93 @@
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 px-6">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="group cursor-pointer">
-                <h1 class="text-white text-2xl font-bold tracking-tighter uppercase luxury">MR AUTO <span class="text-gold">DETAILERS</span></h1>
-                <p class="text-[9px] tracking-[0.4em] text-gray-500 uppercase font-semibold group-hover:text-gold transition">Mobile Professionals</p>
+                <h1 class="text-white text-xl md:text-2xl font-bold uppercase luxury brand-spacing">
+                    MR &nbsp; AUTO <span class="text-gold">DETAILERS</span>
+                </h1>
+                <p class="text-[9px] tracking-[0.5em] text-gray-500 uppercase font-semibold group-hover:text-gold transition mt-1">Mobile Professionals</p>
             </div>
-            <div class="hidden md:flex space-x-10 text-[11px] uppercase tracking-widest font-bold">
+            <div class="hidden lg:flex space-x-10 text-[11px] uppercase tracking-widest font-bold">
                 <a href="#home" class="hover:text-gold transition">Home</a>
                 <a href="#services" class="hover:text-gold transition">Services</a>
                 <a href="#maintenance" class="hover:text-gold transition">Maintenance</a>
                 <a href="#contact" class="hover:text-gold transition">Contact</a>
             </div>
-            <a href="tel:8133854583" class="bg-gold text-black px-5 py-2 text-xs font-black uppercase tracking-tighter hover:scale-105 transition">
-                <i class="fa-solid fa-phone mr-2"></i> 813-385-4583
+            <a href="tel:8133854583" class="bg-gold text-black px-5 py-2 text-xs font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">
+                <i class="fa-solid fa-phone mr-2"></i> 813.385.4583
             </a>
         </div>
     </nav>
 
     <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-6">
         <div data-aos="fade-up" data-aos-duration="1000">
-            <h2 class="text-gold uppercase tracking-[0.5em] text-sm mb-4">Precision & Luxury</h2>
-            <h1 class="text-5xl md:text-8xl text-white luxury italic mb-6">Your Vehicle, <br>Our Expertise.</h1>
-            <p class="max-w-xl mx-auto text-gray-400 font-light text-lg mb-10 leading-relaxed">
-                Experience the convenience of high-end detailing at your doorstep. We bring the showroom finish to you.
+            <h2 class="text-gold uppercase tracking-[0.6em] text-xs mb-6">Precision & Luxury Mobility</h2>
+            <h1 class="text-5xl md:text-8xl text-white luxury italic mb-8 leading-tight">Your Vehicle, <br>Our Expertise.</h1>
+            <p class="max-w-xl mx-auto text-gray-400 font-light text-lg mb-10 leading-relaxed italic">
+                Detailing is an art form. We bring the gallery to your driveway.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#services" class="border border-gold text-gold px-10 py-4 uppercase text-xs font-bold tracking-widest hover:bg-gold hover:text-black transition">View Pricing</a>
-                <a href="#contact" class="bg-white text-black px-10 py-4 uppercase text-xs font-bold tracking-widest hover:bg-gray-200 transition">Book Now</a>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#services" class="border border-gold text-gold px-12 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-gold hover:text-black transition">Explore Suites</a>
+                <a href="#contact" class="bg-white text-black px-12 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-gold hover:border-gold transition">Reserve Now</a>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-[#050505]">
-        <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
-            <i class="fa-solid fa-star text-gold mb-6 text-2xl"></i>
-            <h3 class="text-3xl md:text-5xl text-white luxury mb-8">Luxury Meets Mobility</h3>
-            <p class="text-gray-400 text-lg leading-relaxed">
-                Welcome to MR Mobile Detailers, where exceptional detailing meets convenience. From advanced ceramic coatings to top-tier waxes, we only utilize industry-leading solutions to leave your surfaces refreshed and revitalized. Whether you're at home, work, or elsewhere, we bring precision to you.
+    <section class="py-32 px-6 bg-[#050505] border-y border-white/5">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+            <h3 class="text-gold text-sm uppercase tracking-[0.5em] mb-10">The Standard</h3>
+            <p class="text-white luxury text-2xl md:text-4xl leading-relaxed italic mb-10">
+                "We believe the key to an impeccable finish lies in the quality of the products we apply. From advanced ceramic coatings to top-tier waxes, we utilize only industry-leading solutions."
             </p>
+            <div class="h-px w-20 bg-gold mx-auto mb-10"></div>
+            <p class="text-gray-500 text-sm tracking-widest uppercase">Experience luxury without compromising your schedule.</p>
         </div>
     </section>
 
     <section id="services" class="py-24 px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
-                <div data-aos="fade-right">
-                    <span class="text-gold uppercase tracking-widest text-xs">Excellence inside</span>
-                    <h2 class="text-4xl md:text-6xl text-white luxury italic">Interior Packages</h2>
-                </div>
-                <p class="text-gray-500 md:max-w-xs text-sm mt-4 md:mt-0 italic">Starting quotes based on vehicle size and condition.</p>
+            <div class="text-center mb-20" data-aos="fade-down">
+                <h2 class="text-4xl md:text-6xl text-white luxury italic">Interior Detailing Suites</h2>
+                <p class="text-gold uppercase tracking-[0.4em] text-[10px] mt-4 font-bold">Starting Quotes listed below</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass p-8 hover:border-gold/50 transition-all duration-500" data-aos="zoom-in" data-aos-delay="100">
-                    <h4 class="text-white uppercase tracking-widest font-bold mb-1">Bronze</h4>
-                    <p class="text-gold text-2xl font-bold mb-6">$80+</p>
-                    <ul class="text-sm space-y-4 text-gray-400 mb-8">
-                        <li><i class="fa-solid fa-circle-check mr-2 text-gold/50"></i> Vacuum Interior</li>
-                        <li><i class="fa-solid fa-circle-check mr-2 text-gold/50"></i> Chemical Wipe Down</li>
-                        <li><i class="fa-solid fa-circle-check mr-2 text-gold/50"></i> Interior Windows</li>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass p-10 hover:bg-white/[0.04] transition duration-500" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-white luxury italic text-2xl mb-1">Bronze</h4>
+                    <p class="text-gold font-bold mb-8 text-xl">$80</p>
+                    <ul class="text-[12px] uppercase tracking-widest space-y-4 text-gray-400">
+                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Vacuum Interior</li>
+                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Chemical Wipe</li>
+                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Clean Windows</li>
                     </ul>
                 </div>
-
-                <div class="glass p-8 hover:border-gold/50 transition-all duration-500 border-b-2 border-b-gray-600" data-aos="zoom-in" data-aos-delay="200">
-                    <h4 class="text-white uppercase tracking-widest font-bold mb-1">Silver</h4>
-                    <p class="text-gold text-2xl font-bold mb-6">$100+</p>
-                    <ul class="text-sm space-y-4 text-gray-400 mb-8">
-                        <li><i class="fa-solid fa-circle-check mr-2 text-gold/50"></i> All Bronze Features</li>
-                        <li class="text-white"><i class="fa-solid fa-plus mr-2 text-gold"></i> Steam Clean Panels</li>
-                        <li class="text-white"><i class="fa-solid fa-plus mr-2 text-gold"></i> Steam Clean Seats</li>
+                <div class="glass p-10 hover:bg-white/[0.04] transition duration-500" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-white luxury italic text-2xl mb-1">Silver</h4>
+                    <p class="text-gold font-bold mb-8 text-xl">$100</p>
+                    <ul class="text-[12px] uppercase tracking-widest space-y-4 text-gray-400">
+                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Vacuum Interior</li>
+                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Chemical Wipe</li>
+                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Clean Windows</li>
+                        <li class="text-white italic"><i class="fa-solid fa-plus gold-text mr-2"></i> Steam Clean Seats</li>
                     </ul>
                 </div>
-
-                <div class="glass p-8 border-gold relative shadow-2xl scale-105 bg-white/[0.03]" data-aos="zoom-in" data-aos-delay="300">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-black text-[10px] font-black px-3 py-1 uppercase tracking-widest">Most Requested</span>
-                    <h4 class="text-white uppercase tracking-widest font-bold mb-1">Gold</h4>
-                    <p class="text-gold text-2xl font-bold mb-6">$120+</p>
-                    <ul class="text-sm space-y-4 text-gray-400 mb-8">
-                        <li><i class="fa-solid fa-circle-check mr-2 text-gold/50"></i> All Silver Features</li>
-                        <li class="text-white"><i class="fa-solid fa-plus mr-2 text-gold"></i> High Quality Protectant</li>
-                        <li class="text-white"><i class="fa-solid fa-plus mr-2 text-gold"></i> Clean/Condition Leather</li>
-                        <li class="text-white"><i class="fa-solid fa-plus mr-2 text-gold"></i> Steam Cloth Seats</li>
+                <div class="glass p-10 bg-white/[0.03] border-gold transform lg:-translate-y-4 shadow-2xl transition duration-500" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-white luxury italic text-2xl mb-1">Gold</h4>
+                    <p class="text-gold font-bold mb-8 text-xl">$120</p>
+                    <ul class="text-[12px] uppercase tracking-widest space-y-4 text-gray-400">
+                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Silver Features</li>
+                        <li class="text-white"><i class="fa-solid fa-plus gold-text mr-2"></i> Plastic Protectant</li>
+                        <li class="text-white"><i class="fa-solid fa-plus gold-text mr-2"></i> Leather Condition</li>
+                        <li class="text-white"><i class="fa-solid fa-plus gold-text mr-2"></i> Steam Cloth Seats</li>
                     </ul>
                 </div>
-
-                <div class="glass p-8 hover:border-gold/50 transition-all duration-500" data-aos="zoom-in" data-aos-delay="400">
-                    <h4 class="text-white uppercase tracking-widest font-bold mb-1">Diamond</h4>
-                    <p class="text-gold text-2xl font-bold mb-6">$160+</p>
-                    <ul class="text-sm space-y-3 text-gray-400 mb-8 text-[13px]">
-                        <li><i class="fa-solid fa-crown mr-2 text-gold"></i> The Full Signature Clean</li>
-                        <li><i class="fa-solid fa-circle-check mr-2 text-gold/50"></i> Interior Sanitization</li>
-                        <li><i class="fa-solid fa-circle-check mr-2 text-gold/50"></i> Shampoo & Extraction</li>
-                        <li><i class="fa-solid fa-circle-check mr-2 text-gold/50"></i> Carpets & Mats Detailed</li>
+                <div class="glass p-10 hover:bg-white/[0.04] transition duration-500" data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="text-white luxury italic text-2xl mb-1 text-blue-100">Diamond</h4>
+                    <p class="text-gold font-bold mb-8 text-xl">$160</p>
+                    <ul class="text-[11px] uppercase tracking-widest space-y-4 text-gray-400">
+                        <li class="text-white italic tracking-tighter">The Ultimate Rebirth</li>
+                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Interior Sanitize</li>
+                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Shampoo/Extract Seats</li>
+                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Carpet Extraction</li>
                     </ul>
                 </div>
             </div>
@@ -131,179 +131,121 @@
 
     <section class="py-24 px-6 bg-zinc-950">
         <div class="max-w-7xl mx-auto">
-            <div class="mb-16 text-center" data-aos="fade-up">
-                <h2 class="text-4xl md:text-6xl text-white luxury italic">Exterior Perfection</h2>
-                <div class="h-1 w-20 bg-gold mx-auto mt-6"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="space-y-4" data-aos="fade-right">
-                    <div class="glass p-6 flex justify-between items-center group cursor-pointer hover:bg-white/5 transition">
-                        <div>
-                            <h5 class="text-white font-bold uppercase tracking-widest">Bronze Exterior</h5>
-                            <p class="text-xs text-gray-500 mt-1">Hand Wash, Foam Cannon, Tires Dressed, Light Ceramic Booster</p>
-                        </div>
-                        <span class="text-gold font-bold text-xl">$40</span>
+            <h2 class="text-center text-4xl text-white luxury italic mb-16">Exterior Perfection</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="glass p-8 flex justify-between items-center group cursor-pointer" data-aos="fade-right">
+                    <div>
+                        <h4 class="text-white tracking-[0.2em] font-bold uppercase text-sm">Bronze Exterior</h4>
+                        <p class="text-[10px] text-gray-500 mt-2">Foam Cannon & Ceramic Booster</p>
                     </div>
-                    <div class="glass p-6 flex justify-between items-center group cursor-pointer hover:bg-white/5 transition">
-                        <div>
-                            <h5 class="text-white font-bold uppercase tracking-widest">Silver Exterior</h5>
-                            <p class="text-xs text-gray-500 mt-1">All Bronze + Door Jambs, Fuel Door, High Quality Sealant</p>
-                        </div>
-                        <span class="text-gold font-bold text-xl">$70</span>
-                    </div>
+                    <div class="text-gold font-bold text-xl">$40</div>
                 </div>
-
-                <div class="space-y-4" data-aos="fade-left">
-                    <div class="glass p-6 flex justify-between items-center border-l-2 border-l-gold group cursor-pointer hover:bg-white/5 transition">
-                        <div>
-                            <h5 class="text-white font-bold uppercase tracking-widest">Gold Exterior</h5>
-                            <p class="text-xs text-gray-500 mt-1">All Silver + Clay Bar Paint & Iron Decontamination</p>
-                        </div>
-                        <span class="text-gold font-bold text-xl">$120</span>
+                <div class="glass p-8 flex justify-between items-center group cursor-pointer" data-aos="fade-left">
+                    <div>
+                        <h4 class="text-white tracking-[0.2em] font-bold uppercase text-sm">Silver Exterior</h4>
+                        <p class="text-[10px] text-gray-500 mt-2">Door Jambs & High Quality Sealant</p>
                     </div>
-                    <div class="glass p-6 flex justify-between items-center border-l-2 border-l-white group cursor-pointer hover:bg-white/5 transition">
-                        <div>
-                            <h5 class="text-white font-bold uppercase tracking-widest">Diamond Exterior</h5>
-                            <p class="text-xs text-gray-500 mt-1">The Gold Suite + Engine Bay Detailing</p>
-                        </div>
-                        <span class="text-gold font-bold text-xl">$150</span>
+                    <div class="text-gold font-bold text-xl">$70</div>
+                </div>
+                <div class="glass p-8 flex justify-between items-center border-l-2 border-l-gold" data-aos="fade-right">
+                    <div>
+                        <h4 class="text-white tracking-[0.2em] font-bold uppercase text-sm">Gold Exterior</h4>
+                        <p class="text-[10px] text-gray-500 mt-2">Clay Bar & Iron Decontamination</p>
                     </div>
+                    <div class="text-gold font-bold text-xl">$120</div>
+                </div>
+                <div class="glass p-8 flex justify-between items-center border-l-2 border-l-white" data-aos="fade-left">
+                    <div>
+                        <h4 class="text-white tracking-[0.2em] font-bold uppercase text-sm">Diamond Exterior</h4>
+                        <p class="text-[10px] text-gray-500 mt-2">Full Exterior + Engine Bay Detail</p>
+                    </div>
+                    <div class="text-gold font-bold text-xl">$150</div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="maintenance" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <div class="lg:col-span-2 glass p-10" data-aos="fade-up">
-                <h3 class="text-3xl text-white luxury mb-8 italic">Package Add-Ons</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-                    <div class="flex justify-between border-b border-white/5 pb-2">
-                        <span class="text-sm uppercase tracking-widest">Bronze Ext Add-on</span>
-                        <span class="text-gold">+$40</span>
-                    </div>
-                    <div class="flex justify-between border-b border-white/5 pb-2">
-                        <span class="text-sm uppercase tracking-widest">Silver Ext Add-on</span>
-                        <span class="text-gold">+$60</span>
-                    </div>
-                    <div class="flex justify-between border-b border-white/5 pb-2">
-                        <span class="text-sm uppercase tracking-widest">Gold Ext Add-on</span>
-                        <span class="text-gold">+$100</span>
-                    </div>
-                    <div class="flex justify-between border-b border-white/5 pb-2">
-                        <span class="text-sm uppercase tracking-widest">Diamond Ext Add-on</span>
-                        <span class="text-gold">+$140</span>
-                    </div>
-                    <div class="flex justify-between border-b border-white/5 pb-2">
-                        <span class="text-sm uppercase tracking-widest">Headliner</span>
-                        <span class="text-gold">+$25</span>
-                    </div>
-                    <div class="flex justify-between border-b border-white/5 pb-2">
-                        <span class="text-sm uppercase tracking-widest">Ozone Treatment</span>
-                        <span class="text-gold">$70</span>
-                    </div>
-                    <div class="flex justify-between border-b border-white/5 pb-2">
-                        <span class="text-sm uppercase tracking-widest">Headlight Restore</span>
-                        <span class="text-gold">$30/ea</span>
-                    </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="glass p-12" data-aos="fade-up">
+                <h3 class="text-white luxury text-3xl italic mb-8">Add-On Bundles</h3>
+                <p class="text-[11px] uppercase tracking-[0.3em] text-gold mb-10">Add Exterior to Any Interior</p>
+                <div class="space-y-6">
+                    <div class="flex justify-between border-b border-white/5 pb-4"><span class="uppercase text-xs tracking-widest">Bronze Exterior</span> <span class="text-gold">+$40</span></div>
+                    <div class="flex justify-between border-b border-white/5 pb-4"><span class="uppercase text-xs tracking-widest">Silver Exterior</span> <span class="text-gold">+$60</span></div>
+                    <div class="flex justify-between border-b border-white/5 pb-4"><span class="uppercase text-xs tracking-widest">Gold Exterior</span> <span class="text-gold">+$100</span></div>
+                    <div class="flex justify-between border-b border-white/5 pb-4"><span class="uppercase text-xs tracking-widest">Diamond Exterior</span> <span class="text-gold">+$140</span></div>
                 </div>
             </div>
-
-            <div class="bg-gold p-10 flex flex-col justify-center text-black" data-aos="fade-left">
-                <h3 class="text-3xl luxury font-bold mb-4">Maintenance Details</h3>
-                <p class="font-medium mb-8 leading-relaxed">
-                    Protect your investment with regular care. Contact us for exclusive monthly or bi-weekly maintenance rates.
+            <div class="flex flex-col justify-center glass p-12 bg-white/[0.02]" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-white luxury text-3xl italic mb-6">Maintenance Details</h3>
+                <p class="text-gray-400 leading-relaxed mb-8">
+                    Monthly or Bi-weekly maintenance ensures your vehicle never loses that "just detailed" feel. Perfect for luxury and daily drivers alike.
                 </p>
-                <a href="tel:8133854583" class="bg-black text-white text-center py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-zinc-800 transition">Get A Quote</a>
+                <div class="grid grid-cols-2 gap-4 text-[11px] uppercase tracking-widest mb-10">
+                    <div class="bg-gold/10 p-3 text-gold">Headliner: $25+</div>
+                    <div class="bg-gold/10 p-3 text-gold">Ozone: $70</div>
+                    <div class="bg-gold/10 p-3 text-gold">Headlights: $30 ea</div>
+                </div>
+                <a href="tel:8133854583" class="bg-gold text-black font-black uppercase tracking-widest py-4 text-center hover:scale-105 transition">Inquire About Maintenance</a>
             </div>
         </div>
     </section>
 
-    <section class="py-12 bg-black overflow-hidden">
-        <div class="flex space-x-4 animate-pulse">
-            <div class="h-64 min-w-[300px] bg-zinc-900"></div>
-            <div class="h-64 min-w-[300px] bg-zinc-800"></div>
-            <div class="h-64 min-w-[300px] bg-zinc-900"></div>
-            <div class="h-64 min-w-[300px] bg-zinc-800"></div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-24 px-6 bg-zinc-950">
+    <section id="contact" class="py-24 px-6 bg-dark">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div data-aos="fade-right">
-                    <h2 class="text-5xl text-white luxury italic mb-6">Book Your <br><span class="text-gold not-italic">Spa Day</span></h2>
-                    <p class="text-gray-400 mb-10">Your satisfaction is our commitment. Let us know your vehicle type and preferred service, and we'll handle the rest.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-center space-x-4">
-                            <div class="h-12 w-12 rounded-full border border-gold flex items-center justify-center text-gold">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs uppercase text-gray-500 tracking-widest">Call or Text</p>
-                                <p class="text-white font-bold">813-385-4583</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="h-12 w-12 rounded-full border border-gold flex items-center justify-center text-gold">
-                                <i class="fa-solid fa-calendar"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs uppercase text-gray-500 tracking-widest">Availability</p>
-                                <p class="text-white font-bold">7 Days A Week</p>
-                            </div>
-                        </div>
+                    <h2 class="text-5xl md:text-7xl text-white luxury italic leading-tight mb-8">Book Your <br> <span class="text-gold not-italic">VIP Session</span></h2>
+                    <p class="text-gray-500 mb-10 tracking-wide">Available 7 Days A Week. We bring the luxury to you.</p>
+                    <div class="space-y-4">
+                        <p class="text-2xl text-white luxury tracking-widest italic">813.385.4583</p>
+                        <div class="h-px w-full bg-white/5"></div>
+                        <p class="text-[10px] uppercase tracking-[0.5em] text-gray-500">Service Hours: 7am - 7pm</p>
                     </div>
                 </div>
-
-                <div class="glass p-10" data-aos="fade-left">
-                    <form action="#" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <input type="text" placeholder="Full Name" class="bg-white/5 border border-white/10 p-4 text-sm focus:border-gold outline-none text-white w-full">
-                            <input type="tel" placeholder="Phone Number" class="bg-white/5 border border-white/10 p-4 text-sm focus:border-gold outline-none text-white w-full">
-                        </div>
-                        <select class="bg-white/5 border border-white/10 p-4 text-sm focus:border-gold outline-none text-gray-400 w-full">
-                            <option>Select A Service</option>
-                            <option>Interior Package</option>
-                            <option>Exterior Package</option>
-                            <option>The Full Suite (Bundle)</option>
+                <div class="glass p-12" data-aos="fade-left">
+                    <form class="space-y-6">
+                        <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 p-4 outline-none focus:border-gold text-white text-sm">
+                        <input type="tel" placeholder="Phone" class="w-full bg-white/5 border border-white/10 p-4 outline-none focus:border-gold text-white text-sm">
+                        <select class="w-full bg-white/5 border border-white/10 p-4 outline-none focus:border-gold text-gray-500 text-sm">
+                            <option>Select A Package</option>
+                            <option>Interior Suite</option>
+                            <option>Exterior Suite</option>
+                            <option>Full Transformation</option>
                         </select>
-                        <textarea rows="4" placeholder="Vehicle Make/Model & Inquiries" class="bg-white/5 border border-white/10 p-4 text-sm focus:border-gold outline-none text-white w-full"></textarea>
-                        <button class="bg-gold text-black w-full py-4 font-black uppercase tracking-widest hover:brightness-110 transition">Request Appointment</button>
+                        <textarea placeholder="Vehicle Year, Make, & Model" rows="4" class="w-full bg-white/5 border border-white/10 p-4 outline-none focus:border-gold text-white text-sm"></textarea>
+                        <button class="w-full bg-white text-black font-black uppercase tracking-[0.3em] py-5 hover:bg-gold transition">Request Availability</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 px-6 border-t border-white/5 bg-black">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-            <div>
-                <h4 class="luxury text-white text-xl uppercase tracking-tighter">MR Auto Detailers</h4>
-                <p class="text-[10px] text-gray-600 uppercase tracking-[0.3em] mt-1">Mobile Detailing Professionals</p>
+    <footer class="py-20 px-6 border-t border-white/5 bg-black">
+        <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+            <h4 class="luxury text-white text-2xl uppercase brand-spacing mb-4">
+                MR &nbsp; AUTO <span class="text-gold">DETAILERS</span>
+            </h4>
+            <p class="text-[10px] text-gray-600 uppercase tracking-[0.5em] mb-12 italic font-semibold">The Gold Standard of Mobile Detailing</p>
+            <div class="flex space-x-12 mb-12 text-gray-400">
+                <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-google text-xl"></i></a>
             </div>
-            <div class="mt-8 md:mt-0 text-[10px] text-gray-700 uppercase tracking-[0.4em]">
-                &copy; 2024 MR Auto Detailers. All Rights Reserved.
-            </div>
-            <div class="flex space-x-6 mt-8 md:mt-0">
-                <i class="fa-brands fa-instagram hover:text-gold transition cursor-pointer"></i>
-                <i class="fa-brands fa-facebook hover:text-gold transition cursor-pointer"></i>
-            </div>
+            <p class="text-[9px] text-zinc-800 uppercase tracking-[0.4em]">© 2024 MR AUTO DETAILERS. PRODUCED BY LUXURY DETAILING MEDIA.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ once: true });
-
-        // Navbar scroll effect
+        AOS.init({ once: true, duration: 800 });
+        
         window.onscroll = function() {
             var nav = document.getElementById('navbar');
-            if (window.pageYOffset > 50) {
+            if (window.pageYOffset > 100) {
                 nav.classList.add("nav-scrolled");
-                nav.style.padding = "15px 24px";
+                nav.style.padding = "12px 24px";
             } else {
                 nav.classList.remove("nav-scrolled");
                 nav.style.padding = "24px 24px";

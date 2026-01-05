@@ -13,6 +13,7 @@
     <style>
         :root { --gold: #D4AF37; --dark: #0a0a0a; --silver: #e5e7eb; }
         
+        /* FIXED: Added strict overflow and touch-action to stop mobile "wiggle" */
         html, body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--dark); 
@@ -24,6 +25,8 @@
         }
         
         h1, h2, h3, .luxury { font-family: 'Playfair Display', serif; }
+        
+        /* FIXED: Tightened brand spacing for MR AUTO */
         .brand-text { letter-spacing: 0.1em; }
         .tagline-spacing { letter-spacing: 0.35em; }
 
@@ -40,7 +43,9 @@
 
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
 
+        /* FIXED: Dynamic Viewport Height for mobile browsers */
         .hero-bg { position: relative; overflow: hidden; background: black; height: 100dvh; width: 100vw; }
+        .hero-mosaic { filter: saturate(1.1) contrast(1.1); }
         .hero-tile {
             background-size: cover;
             background-position: center;
@@ -66,6 +71,7 @@
             justify-content: center;
         }
 
+        .hero-dots { display: flex; gap: 12px; align-items: center; }
         .hero-dot {
             width: 8px; height: 8px;
             border-radius: 999px;
@@ -113,7 +119,7 @@
 
     <section id="home" class="hero-bg flex items-center justify-center text-center px-6">
         <div class="absolute inset-0">
-            <div class="grid h-full w-full grid-cols-2 grid-rows-2">
+            <div class="grid h-full w-full grid-cols-2 grid-rows-2 hero-mosaic">
                 <div class="hero-tile" id="tile0"></div>
                 <div class="hero-tile" id="tile1"></div>
                 <div class="hero-tile" id="tile2"></div>
@@ -136,7 +142,7 @@
                 <a href="#services" class="border border-gold text-gold px-10 md:px-14 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-gold hover:text-black transition duration-500">
                     Explore Suites
                 </a>
-                <a href="#contact" class="bg-white text-black px-10 md:px-14 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-gold transition duration-500">
+                <a href="#contact" class="bg-white text-black px-10 md:px-14 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-gold hover:border-gold transition duration-500">
                     Reserve Now
                 </a>
             </div>
@@ -151,7 +157,7 @@
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
             <h3 class="text-gold text-sm uppercase tracking-[0.5em] mb-10">The Standard</h3>
             <p class="text-white luxury text-2xl md:text-4xl leading-relaxed italic mb-10">
-                "We believe the key to an impeccable finish lies in the quality of the products we apply. From advanced ceramic coatings to top-tier waxes."
+                "We believe the key to an impeccable finish lies in the quality of the products we apply. From advanced ceramic coatings to top-tier waxes, we utilize only industry-leading solutions."
             </p>
             <div class="h-px w-20 bg-gold mx-auto mb-10"></div>
             <p class="text-gray-500 text-sm tracking-widest uppercase">
@@ -184,6 +190,7 @@
                     <ul class="text-[12px] uppercase tracking-widest space-y-4 text-gray-400">
                         <li><i class="fa-solid fa-check text-gold mr-2"></i> Vacuum Interior</li>
                         <li><i class="fa-solid fa-check text-gold mr-2"></i> Chemical Wipe</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Clean Windows</li>
                         <li class="text-white italic"><i class="fa-solid fa-plus text-gold mr-2"></i> Steam Clean Seats</li>
                     </ul>
                 </div>
@@ -193,8 +200,9 @@
                     <p class="text-gold font-bold mb-8 text-xl">$120</p>
                     <ul class="text-[12px] uppercase tracking-widest space-y-4 text-gray-400">
                         <li><i class="fa-solid fa-check text-gold mr-2"></i> Silver Features</li>
-                        <li class="text-white"><i class="fa-solid fa-plus text-gold mr-2"></i> Leather Condition</li>
                         <li class="text-white"><i class="fa-solid fa-plus text-gold mr-2"></i> Plastic Protectant</li>
+                        <li class="text-white"><i class="fa-solid fa-plus text-gold mr-2"></i> Leather Condition</li>
+                        <li class="text-white"><i class="fa-solid fa-plus text-gold mr-2"></i> Steam Cloth Seats</li>
                     </ul>
                 </div>
 
@@ -203,9 +211,49 @@
                     <p class="text-gold font-bold mb-8 text-xl">$160</p>
                     <ul class="text-[11px] uppercase tracking-widest space-y-4 text-gray-400">
                         <li class="text-white italic tracking-tighter">The Ultimate Rebirth</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Interior Sanitize</li>
                         <li><i class="fa-solid fa-check text-gold mr-2"></i> Shampoo/Extract Seats</li>
                         <li><i class="fa-solid fa-check text-gold mr-2"></i> Carpet Extraction</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-zinc-950">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-center text-4xl text-white luxury italic mb-16">Exterior Perfection</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="glass p-8 flex justify-between items-center group cursor-pointer" data-aos="fade-right">
+                    <div>
+                        <h4 class="text-white tracking-[0.2em] font-bold uppercase text-sm">Bronze Exterior</h4>
+                        <p class="text-[10px] text-gray-500 mt-2">Foam Cannon & Ceramic Booster</p>
+                    </div>
+                    <div class="text-gold font-bold text-xl">$40</div>
+                </div>
+
+                <div class="glass p-8 flex justify-between items-center group cursor-pointer" data-aos="fade-left">
+                    <div>
+                        <h4 class="text-white tracking-[0.2em] font-bold uppercase text-sm">Silver Exterior</h4>
+                        <p class="text-[10px] text-gray-500 mt-2">Door Jambs & High Quality Sealant</p>
+                    </div>
+                    <div class="text-gold font-bold text-xl">$70</div>
+                </div>
+
+                <div class="glass p-8 flex justify-between items-center border-l-2 border-l-gold" data-aos="fade-right">
+                    <div>
+                        <h4 class="text-white tracking-[0.2em] font-bold uppercase text-sm">Gold Exterior</h4>
+                        <p class="text-[10px] text-gray-500 mt-2">Clay Bar & Iron Decontamination</p>
+                    </div>
+                    <div class="text-gold font-bold text-xl">$120</div>
+                </div>
+
+                <div class="glass p-8 flex justify-between items-center border-l-2 border-l-white" data-aos="fade-left">
+                    <div>
+                        <h4 class="text-white tracking-[0.2em] font-bold uppercase text-sm">Diamond Exterior</h4>
+                        <p class="text-[10px] text-gray-500 mt-2">Full Exterior + Engine Bay Detail</p>
+                    </div>
+                    <div class="text-gold font-bold text-xl">$150</div>
                 </div>
             </div>
         </div>
@@ -225,34 +273,69 @@
             </div>
 
             <div class="flex flex-col justify-center glass p-12 bg-white/[0.02]" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="text-white luxury text-3xl italic mb-4">Maintenance Tiers</h3>
-                <p class="text-gray-400 leading-relaxed mb-8">Consistent care for the discerning owner. Keep your vehicle in showroom condition year-round.</p>
-                <div class="space-y-4 mb-10">
-                    <div class="flex justify-between items-center bg-gold/10 p-4 border-l-2 border-gold">
-                        <span class="text-[11px] uppercase tracking-widest text-white">Weekly Maintenance</span>
-                        <span class="text-gold font-bold">$80</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-white/5 p-4 border-l-2 border-white/20">
-                        <span class="text-[11px] uppercase tracking-widest text-white">Bi-Weekly Maintenance</span>
-                        <span class="text-gold font-bold">$100</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-white/5 p-4 border-l-2 border-white/20">
-                        <span class="text-[11px] uppercase tracking-widest text-white">Monthly Maintenance</span>
-                        <span class="text-gold font-bold">$120</span>
-                    </div>
+                <h3 class="text-white luxury text-3xl italic mb-6">Maintenance Details</h3>
+                <p class="text-gray-400 leading-relaxed mb-8">
+                    Monthly or Bi-weekly maintenance ensures your vehicle never loses that "just detailed" feel. Perfect for luxury and daily drivers alike.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[11px] uppercase tracking-widest mb-10">
+                    <div class="bg-gold/10 p-3 text-gold">Headliner: $25+</div>
+                    <div class="bg-gold/10 p-3 text-gold">Ozone: $70</div>
+                    <div class="bg-gold/10 p-3 text-gold">Headlights: $30 ea</div>
+                    <div class="bg-gold/10 p-3 text-gold">Ask about bundles</div>
                 </div>
-                <a href="tel:8133854583" class="bg-gold text-black font-black uppercase tracking-widest py-4 text-center hover:scale-105 transition shadow-xl">
+                <a href="tel:8133854583" class="bg-gold text-black font-black uppercase tracking-widest py-4 text-center hover:scale-105 transition">
                     Inquire About Maintenance
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="social" class="py-24 px-6 bg-[#050505] border-t border-white/5 text-center">
-        <h2 class="text-4xl text-white luxury italic mb-10">Trusted Results</h2>
-        <div class="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
-            <div class="glass p-8 italic">"Hands down one of the best details I’ve ever seen." - Ahmad Y.</div>
-            <div class="glass p-8 italic">"The owner is all about attention to detail." - Zaid K.</div>
+    <section id="social" class="py-24 px-6 bg-[#050505] border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14" data-aos="fade-up">
+                <h2 class="text-4xl md:text-6xl text-white luxury italic mb-4">Trusted. Proven. Reviewed.</h2>
+                <p class="text-gold uppercase tracking-[0.4em] text-[10px] font-bold">Real Clients • Real Results</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4" data-aos="fade-up">
+                <div class="glass p-8">
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="text-white font-semibold">Ahmad Yousef</h4>
+                        <span class="text-gold text-sm">★★★★★</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed italic">"Hands down one of the best details I’ve ever seen. I didn’t know my Honda was actually dirty until after he finished."</p>
+                </div>
+                <div class="glass p-8">
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="text-white font-semibold">Zaid Khader</h4>
+                        <span class="text-gold text-sm">★★★★★</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed italic">"Awesome car detailing. The owner is all about attention to detail. Super friendly, and he will come to you anywhere."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 bg-dark">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-5xl md:text-7xl text-white luxury italic leading-tight mb-8">Book Your <br> <span class="text-gold not-italic">VIP Session</span></h2>
+                    <p class="text-gray-500 mb-10 tracking-wide">Available 7 Days A Week. We bring the luxury to you.</p>
+                    <div class="space-y-4">
+                        <p class="text-2xl text-white luxury tracking-widest italic">813.385.4583</p>
+                        <div class="h-px w-full bg-white/5"></div>
+                    </div>
+                </div>
+                <div class="glass p-12" data-aos="fade-left">
+                    <form class="space-y-6">
+                        <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 p-4 outline-none focus:border-gold text-white text-sm">
+                        <input type="tel" placeholder="Phone" class="w-full bg-white/5 border border-white/10 p-4 outline-none focus:border-gold text-white text-sm">
+                        <textarea placeholder="Vehicle Details" rows="4" class="w-full bg-white/5 border border-white/10 p-4 outline-none focus:border-gold text-white text-sm"></textarea>
+                        <button type="button" class="w-full bg-white text-black font-black uppercase tracking-[0.3em] py-5 hover:bg-gold transition">Request Availability</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -272,36 +355,52 @@
         };
 
         (function () {
-            const images = ["./detail.1.jpg", "./detail.2.jpg", "./detail.3.jpg", "./detail.4.jpg", "./detail.5.jpg", "./detail.6.jpg", "./detail.7.jpg", "./detail.8.jpg"];
-            const tiles = [document.getElementById("tile0"), document.getElementById("tile1"), document.getElementById("tile2"), document.getElementById("tile3")];
+            const images = [
+                "./detail.1.jpg", "./detail.2.jpg", "./detail.3.jpg", "./detail.4.jpg",
+                "./detail.5.jpg", "./detail.6.jpg", "./detail.7.jpg", "./detail.8.jpg",
+                "./detail.9.jpg", "./detail.10.jpg", "./detail.11.jpg", "./detail.12.jpg",
+                "./detail.13.jpg", "./detail.14.jpg", "./detail.15.jpg", "./detail.16.jpg"
+            ];
+
+            const tiles = [
+                document.getElementById("tile0"), document.getElementById("tile1"),
+                document.getElementById("tile2"), document.getElementById("tile3"),
+            ];
+
             const dotsWrap = document.getElementById("heroDots");
+            const pageSize = 4;
+            const pageCount = Math.ceil(images.length / pageSize);
             let pageIndex = 0;
-            const pageCount = Math.ceil(images.length / 4);
+            let timer = null;
 
             function buildDots() {
                 for (let i = 0; i < pageCount; i++) {
                     const dot = document.createElement("button");
                     dot.className = "hero-dot";
-                    dot.onclick = () => { pageIndex = i; render(); };
+                    dot.onclick = () => { pageIndex = i; render(); resetTimer(); };
                     dotsWrap.appendChild(dot);
                 }
             }
 
             function render() {
-                const start = pageIndex * 4;
+                const start = pageIndex * pageSize;
                 tiles.forEach(t => t.classList.remove("is-active"));
                 setTimeout(() => {
                     for (let t = 0; t < tiles.length; t++) {
-                        tiles[t].style.backgroundImage = `url('${images[(start + t) % images.length]}')`;
+                        const img = images[(start + t) % images.length];
+                        tiles[t].style.backgroundImage = `url('${img}')`;
                     }
                     tiles.forEach(t => t.classList.add("is-active"));
-                }, 1000);
+                }, 1000); 
                 [...dotsWrap.children].forEach((d, i) => d.classList.toggle("is-active", i === pageIndex));
             }
 
+            function next() { pageIndex = (pageIndex + 1) % pageCount; render(); }
+            function resetTimer() { clearInterval(timer); timer = setInterval(next, 6000); }
+
             buildDots();
             render();
-            setInterval(() => { pageIndex = (pageIndex + 1) % pageCount; render(); }, 6000);
+            timer = setInterval(next, 6000);
         })();
     </script>
 </body>

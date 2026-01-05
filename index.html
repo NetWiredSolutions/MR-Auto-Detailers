@@ -26,15 +26,88 @@
 
     /* Premium Blur Effects */
     .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-    .hero-bg {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
-                  url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2000&auto=format&fit=crop');
-      background-size: cover; background-position: center;
-    }
+
+    /* IMPORTANT: hero-bg is now a container for the slideshow, not a static background image */
+    .hero-bg { position: relative; overflow: hidden; }
+
     .nav-scrolled { background: rgba(0,0,0,0.95); border-bottom: 1px solid rgba(212, 175, 55, 0.3); }
 
     /* Cleaner tap targets on mobile */
     a, button { -webkit-tap-highlight-color: transparent; }
+
+    /* ------------------------------ */
+    /* HERO MOSAIC SLIDESHOW STYLES   */
+    /* ------------------------------ */
+    .hero-mosaic { filter: saturate(1.05) contrast(1.05); }
+    .hero-tile {
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: scale(1.03);
+      transition: opacity 600ms ease, transform 900ms ease;
+    }
+    .hero-tile.is-active { opacity: 1; transform: scale(1); }
+
+    .hero-overlay {
+      background:
+        radial-gradient(1200px 800px at 50% 40%, rgba(0,0,0,0.20), rgba(0,0,0,0.84)),
+        linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.92));
+    }
+
+    .hero-controls {
+      position: absolute;
+      inset: auto 0 22px 0;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 16px;
+      flex-wrap: wrap;
+      pointer-events: none; /* let hero buttons be the only interactive targets */
+    }
+    .hero-controls > * { pointer-events: auto; }
+
+    .hero-btn {
+      border: 1px solid rgba(212,175,55,0.55);
+      color: #D4AF37;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(10px);
+      padding: 10px 12px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .hero-btn:hover { transform: translateY(-1px); background: rgba(212,175,55,0.12); }
+
+    .hero-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: min(92vw, 720px);
+      margin-left: 6px;
+    }
+    .hero-dot {
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.10);
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .hero-dot.is-active {
+      background: rgba(212,175,55,0.95);
+      border-color: rgba(212,175,55,0.95);
+      transform: scale(1.15);
+    }
+
+    @media (max-width: 640px) {
+      .hero-mosaic { filter: saturate(1.0) contrast(1.0); }
+      .hero-btn { padding: 10px 10px; font-size: 11px; }
+      .hero-controls { bottom: 16px; gap: 8px; }
+    }
   </style>
 </head>
 
@@ -65,8 +138,21 @@
     </div>
   </nav>
 
+  <!-- HERO (UPDATED to 4-tile slideshow using images/detail.1.jpg -> detail.16.jpg) -->
   <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-6">
-    <div data-aos="fade-up" data-aos-duration="1000">
+    <!-- Background Mosaic -->
+    <div class="absolute inset-0">
+      <div class="grid h-full w-full grid-cols-2 grid-rows-2 hero-mosaic">
+        <div class="hero-tile" id="tile0"></div>
+        <div class="hero-tile" id="tile1"></div>
+        <div class="hero-tile" id="tile2"></div>
+        <div class="hero-tile" id="tile3"></div>
+      </div>
+      <div class="absolute inset-0 hero-overlay"></div>
+    </div>
+
+    <!-- Foreground content -->
+    <div class="relative z-10" data-aos="fade-up" data-aos-duration="1000">
       <h2 class="text-gold uppercase tracking-[0.6em] text-[10px] md:text-xs mb-6">
         Precision & Luxury Mobility
       </h2>
@@ -75,7 +161,7 @@
         Your Vehicle, <br>Our Expertise.
       </h1>
 
-      <p class="max-w-xl mx-auto text-gray-400 font-light text-base md:text-lg mb-10 leading-relaxed italic">
+      <p class="max-w-xl mx-auto text-gray-300/90 font-light text-base md:text-lg mb-10 leading-relaxed italic">
         Detailing is an art form. We bring the gallery to your driveway.
       </p>
 
@@ -87,6 +173,19 @@
           Reserve Now
         </a>
       </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="hero-controls">
+      <button class="hero-btn" id="heroPrev" type="button" aria-label="Previous images">
+        <i class="fa-solid fa-chevron-left mr-2"></i> Prev
+      </button>
+
+      <button class="hero-btn" id="heroNext" type="button" aria-label="Next images">
+        Next <i class="fa-solid fa-chevron-right ml-2"></i>
+      </button>
+
+      <div class="hero-dots" id="heroDots" aria-label="Slideshow dots"></div>
     </div>
   </section>
 
@@ -443,6 +542,128 @@
         nav.style.padding = "24px 24px";
       }
     };
+  </script>
+
+  <!-- HERO MOSAIC SLIDESHOW SCRIPT (detail.1.jpg -> detail.16.jpg) -->
+  <script>
+    (function () {
+      const images = [
+        "images/detail.1.jpg",
+        "images/detail.2.jpg",
+        "images/detail.3.jpg",
+        "images/detail.4.jpg",
+        "images/detail.5.jpg",
+        "images/detail.6.jpg",
+        "images/detail.7.jpg",
+        "images/detail.8.jpg",
+        "images/detail.9.jpg",
+        "images/detail.10.jpg",
+        "images/detail.11.jpg",
+        "images/detail.12.jpg",
+        "images/detail.13.jpg",
+        "images/detail.14.jpg",
+        "images/detail.15.jpg",
+        "images/detail.16.jpg"
+      ];
+
+      const tiles = [
+        document.getElementById("tile0"),
+        document.getElementById("tile1"),
+        document.getElementById("tile2"),
+        document.getElementById("tile3"),
+      ];
+
+      const prevBtn = document.getElementById("heroPrev");
+      const nextBtn = document.getElementById("heroNext");
+      const dotsWrap = document.getElementById("heroDots");
+
+      const pageSize = 4;
+      const pageCount = Math.ceil(images.length / pageSize);
+
+      let pageIndex = 0;
+      let timer = null;
+      const intervalMs = 4500;
+
+      function buildDots() {
+        if (!dotsWrap) return;
+        dotsWrap.innerHTML = "";
+        for (let i = 0; i < pageCount; i++) {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "hero-dot";
+          dot.setAttribute("aria-label", `Go to set ${i + 1}`);
+          dot.addEventListener("click", () => {
+            pageIndex = i;
+            render();
+            restart();
+          });
+          dotsWrap.appendChild(dot);
+        }
+      }
+
+      function setActiveDots() {
+        if (!dotsWrap) return;
+        [...dotsWrap.children].forEach((d, i) => {
+          d.classList.toggle("is-active", i === pageIndex);
+        });
+      }
+
+      function render() {
+        const start = pageIndex * pageSize;
+
+        for (let t = 0; t < tiles.length; t++) {
+          const img = images[(start + t) % images.length];
+          tiles[t].style.backgroundImage = `url('${img}')`;
+        }
+
+        tiles.forEach(tile => {
+          tile.classList.remove("is-active");
+          void tile.offsetWidth;
+          tile.classList.add("is-active");
+        });
+
+        setActiveDots();
+      }
+
+      function next() {
+        pageIndex = (pageIndex + 1) % pageCount;
+        render();
+      }
+
+      function prev() {
+        pageIndex = (pageIndex - 1 + pageCount) % pageCount;
+        render();
+      }
+
+      function startAuto() {
+        stopAuto();
+        timer = setInterval(next, intervalMs);
+      }
+
+      function stopAuto() {
+        if (timer) clearInterval(timer);
+        timer = null;
+      }
+
+      function restart() {
+        startAuto();
+      }
+
+      if (nextBtn) nextBtn.addEventListener("click", () => { next(); restart(); });
+      if (prevBtn) prevBtn.addEventListener("click", () => { prev(); restart(); });
+
+      const hero = document.getElementById("home");
+      if (hero) {
+        hero.addEventListener("mouseenter", stopAuto);
+        hero.addEventListener("mouseleave", startAuto);
+        hero.addEventListener("touchstart", stopAuto, { passive: true });
+        hero.addEventListener("touchend", startAuto, { passive: true });
+      }
+
+      buildDots();
+      render();
+      startAuto();
+    })();
   </script>
 </body>
 </html>

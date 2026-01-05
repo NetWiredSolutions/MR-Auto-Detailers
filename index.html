@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MR Auto Detailers | Luxury Mobile Auto Detailing</title>
+  <meta name="description" content="MR Auto Detailers provides premium mobile auto detailing. Interior and exterior packages, add-ons, and maintenance details. 7 days a week. Call 813-385-4583." />
+
+  <style>
+    :root{
+      --bg: #07080b;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.09);
+      --text: rgba(255,255,255,.90);
+      --muted: rgba(255,255,255,.68);
+      --muted2: rgba(255,255,255,.55);
+      --border: rgba(255,255,255,.14);
+      --border2: rgba(255,255,255,.10);
+      --gold: #c8a85a;
+      --gold2:#e3cc86;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1160px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(200,168,90,.20), transparent 60%),
+        radial-gradient(900px 520px at 110% 0%, rgba(227,204,134,.14), transparent 60%),
+        radial-gradient(700px 520px at 50% 110%, rgba(255,255,255,.05), transparent 65%),
+        var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    .container{ width:min(var(--max), calc(100% - 48px)); margin:0 auto; }
+
+    /* Top bar */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(7,8,11,.58);
+      border-bottom: 1px solid var(--border2);
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 220px;
+    }
+    .logo{
+      width:38px;
+      height:38px;
+      border-radius: 12px;
+      border:1px solid var(--border);
+      background:
+        radial-gradient(14px 14px at 30% 30%, rgba(227,204,134,.65), transparent 60%),
+        radial-gradient(18px 18px at 70% 70%, rgba(200,168,90,.55), transparent 62%),
+        rgba(255,255,255,.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.22), transparent 60%);
+      transform: rotate(18deg);
+      opacity:.55;
+    }
+    .brand-title{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+    .brand-title strong{
+      font-weight: 700;
+      letter-spacing:.2px;
+    }
+    .brand-title span{
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .nav a{
+      color: var(--muted);
+      font-size: 14px;
+      padding:10px 10px;
+      border-radius: 12px;
+      transition: all .22s ease;
+    }
+    .nav a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+    }
+
+    .nav-cta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      min-width: 240px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding:10px 12px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-size: 13px;
+      transition: transform .22s ease, background .22s ease, border-color .22s ease;
+      white-space:nowrap;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(227,204,134,.35);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius: 999px;
+      border:1px solid rgba(227,204,134,.34);
+      background: linear-gradient(180deg, rgba(227,204,134,.20), rgba(200,168,90,.10));
+      color: var(--text);
+      font-weight: 650;
+      letter-spacing:.2px;
+      font-size: 14px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, filter .22s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+      border-color: rgba(227,204,134,.55);
+      filter: brightness(1.05);
+    }
+    .btn.secondary{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      font-weight: 600;
+      box-shadow:none;
+    }
+    .btn.secondary:hover{
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 14px 50px rgba(0,0,0,.35);
+    }
+
+    .hamburger{
+      display:none;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      border-radius: 14px;
+      padding:10px 12px;
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 54px 0 30px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .hero-card{
+      border:1px solid var(--border2);
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero-left{
+      padding: 34px 34px 30px;
+      min-height: 420px;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      margin-bottom: 12px;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: rgba(227,204,134,.9);
+      box-shadow: 0 0 0 6px rgba(227,204,134,.14);
+    }
+
+    h1{
+      font-size: clamp(34px, 4.1vw, 56px);
+      line-height: 1.08;
+      margin: 0 0 14px;
+      letter-spacing: -.02em;
+    }
+    .lead{
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 62ch;
+      margin: 0 0 18px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 18px;
+    }
+
+    .trust-row{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border2);
+    }
+    .trust{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      padding: 10px 12px;
+      border: 1px solid var(--border2);
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      min-width: 170px;
+    }
+    .trust strong{
+      font-size: 13px;
+      letter-spacing:.2px;
+    }
+    .trust span{
+      font-size: 12px;
+      color: var(--muted2);
+    }
+
+    /* Right hero card */
+    .hero-right{
+      position:relative;
+      min-height: 420px;
+    }
+    .hero-media{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(7,8,11,.0), rgba(7,8,11,.82)),
+        url("assets/images/hero-banner.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.06) contrast(1.04);
+    }
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      padding: 22px;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .mini-card{
+      width:100%;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius: 22px;
+      background: rgba(7,8,11,.52);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 18px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.55);
+    }
+    .mini-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 10px;
+    }
+    .mini-top strong{
+      letter-spacing:.2px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(227,204,134,.35);
+      background: rgba(227,204,134,.10);
+      color: var(--text);
+      font-size: 12px;
+      white-space:nowrap;
+    }
+    .mini-list{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top: 10px;
+    }
+    .mini-item{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding: 10px 12px;
+    }
+    .mini-item b{
+      display:block;
+      font-size: 12px;
+      margin-bottom: 4px;
+      color: rgba(255,255,255,.86);
+    }
+    .mini-item span{
+      font-size: 12px;
+      color: var(--muted2);
+    }
+
+    /* Section base */
+    section{ padding: 34px 0; }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom: 16px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing: -.01em;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      max-width: 72ch;
+      font-size: 14px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .card{
+      border:1px solid var(--border2);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      padding: 18px;
+    }
+    .card.soft{
+      background: rgba(255,255,255,.04);
+      box-shadow:none;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size: 16px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Pricing */
+    .tabs{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin: 8px 0 14px;
+    }
+    .tab{
+      border:1px solid var(--border2);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      padding:10px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      cursor:pointer;
+      transition: all .2s ease;
+      user-select:none;
+    }
+    .tab:hover{
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+    }
+    .tab.active{
+      border-color: rgba(227,204,134,.40);
+      background: rgba(227,204,134,.10);
+      color: var(--text);
+    }
+
+    .pricing-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .price-card{
+      border:1px solid var(--border2);
+      border-radius: 22px;
+      background:
+        radial-gradient(450px 220px at 50% 0%, rgba(227,204,134,.12), transparent 55%),
+        rgba(255,255,255,.04);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      min-height: 320px;
+    }
+    .price-card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(227,204,134,.30);
+      background:
+        radial-gradient(520px 260px at 50% 0%, rgba(227,204,134,.16), transparent 55%),
+        rgba(255,255,255,.05);
+    }
+    .tier{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom: 10px;
+    }
+    .tier b{
+      font-size: 14px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.86);
+    }
+    .starting{
+      color: var(--muted2);
+      font-size: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      padding: 6px 9px;
+      border-radius: 999px;
+      white-space:nowrap;
+    }
+    .money{
+      font-size: 30px;
+      margin: 6px 0 8px;
+      letter-spacing:-.02em;
+    }
+    .money small{
+      font-size: 12px;
+      color: var(--muted2);
+      letter-spacing: .02em;
+      margin-left: 6px;
+    }
+
+    ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    li{ margin: 8px 0; }
+
+    .price-foot{
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border2);
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    /* Add-ons */
+    .addons{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 14px;
+      align-items:start;
+    }
+
+    .list-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 12px 12px;
+      border: 1px solid var(--border2);
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      margin: 10px 0;
+    }
+    .list-row b{ font-size: 13px; }
+    .list-row span{ color: var(--muted2); font-size: 12px; }
+
+    /* Contact */
+    .contact-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items:stretch;
+    }
+    .contact-card{
+      border-radius: 26px;
+      overflow:hidden;
+      padding:0;
+      position:relative;
+      min-height: 340px;
+    }
+    .contact-media{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(7,8,11,.18), rgba(7,8,11,.92)),
+        url("assets/images/contact-banner.jpg");
+      background-size: cover;
+      background-position:center;
+      filter: saturate(1.06) contrast(1.04);
+    }
+    .contact-inner{
+      position:relative;
+      padding: 22px;
+      display:flex;
+      flex-direction:column;
+      height:100%;
+      justify-content:flex-end;
+      gap:12px;
+    }
+
+    .form{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    label{
+      font-size: 12px;
+      color: var(--muted2);
+    }
+    input, textarea, select{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      outline:none;
+      transition: border-color .2s ease, background .2s ease;
+    }
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(227,204,134,.45);
+      background: rgba(255,255,255,.07);
+    }
+    textarea{ min-height: 112px; resize: vertical; }
+
+    .form-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+
+    .fineprint{
+      color: var(--muted2);
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--border2);
+      margin-top: 20px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 14px;
+      align-items:start;
+    }
+    .footer-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .footer-links a{
+      padding: 10px 10px;
+      border-radius: 12px;
+      border:1px solid var(--border2);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      transition: all .2s ease;
+      font-size: 13px;
+    }
+    .footer-links a:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+    }
+
+    /* Mobile */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-left{ min-height:auto; }
+      .hero-right{ min-height: 360px; }
+      .pricing-grid{ grid-template-columns: 1fr 1fr; }
+      .addons{ grid-template-columns: 1fr; }
+      .contact-wrap{ grid-template-columns: 1fr; }
+      .footer-grid{ grid-template-columns: 1fr; }
+      .footer-links{ justify-content:flex-start; }
+      .nav{ display:none; }
+      .hamburger{ display:inline-flex; }
+      .nav-cta{ min-width:auto; }
+    }
+    @media (max-width: 560px){
+      .container{ width: min(var(--max), calc(100% - 32px)); }
+      .pricing-grid{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .form-row{ grid-template-columns: 1fr; }
+      .hero-left{ padding: 26px 22px 22px; }
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce){
+      *{ transition:none !important; scroll-behavior:auto !important; }
+    }
+
+    /* Simple entrance animations */
+    .reveal{
+      opacity:0;
+      transform: translateY(10px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.show{
+      opacity:1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <div class="brand">
+          <!-- If you have a real logo, replace this div with:
+               <img src="assets/images/mr-auto-detailers-logo.png" alt="MR Auto Detailers logo" style="width:38px;height:38px;border-radius:12px;" />
+          -->
+          <div class="logo" aria-hidden="true"></div>
+          <div class="brand-title">
+            <strong>MR Auto Detailers</strong>
+            <span>Luxury Mobile Auto Detailing</span>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#pricing">Prices</a>
+          <a href="#addons">Add-Ons</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="hamburger" id="menuBtn" aria-label="Open menu">Menu</button>
+
+        <div class="nav-cta">
+          <a class="pill" href="tel:8133854583" aria-label="Call MR Auto Detailers">
+            <span aria-hidden="true">📞</span>
+            <span>813-385-4583</span>
+          </a>
+          <a class="btn" href="#contact">
+            <span aria-hidden="true">✦</span>
+            <span>Contact Now</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile dropdown -->
+      <div id="mobileMenu" style="display:none; padding: 0 0 14px;">
+        <div class="card soft" style="padding:14px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+          <a class="pill" href="#home">Home</a>
+          <a class="pill" href="#services">Services</a>
+          <a class="pill" href="#pricing">Prices</a>
+          <a class="pill" href="#addons">Add-Ons</a>
+          <a class="pill" href="#contact">Contact</a>
+          <a class="pill" href="https://www.instagram.com/mr_autodetailers" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-card hero-left reveal">
+          <div class="kicker">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Mobile Auto Detailing Professionals</span>
+          </div>
+
+          <h1>Your Vehicle, Our Expertise</h1>
+
+          <p class="lead">
+            Welcome to MR Auto Detailers, your go-to for premium automotive care at your convenience.
+            From meticulous exterior handwashing to comprehensive interior detailing, we bring precision and professionalism to you.
+            Experience the luxury of mobile detailing without compromising your schedule.
+          </p>
+
+          <p class="lead" style="margin-top:-6px;">
+            Book now and treat your vehicle to the spa day it deserves. Your satisfaction is our commitment.
+            Because your car deserves the best, and so do you.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn" href="#pricing">
+              <span aria-hidden="true">✦</span>
+              <span>View Packages</span>
+            </a>
+            <a class="btn secondary" href="tel:8133854583">
+              <span aria-hidden="true">📞</span>
+              <span>Call Now</span>
+            </a>
+            <a class="btn secondary" href="https://www.instagram.com/mr_autodetailers" target="_blank" rel="noreferrer">
+              <span aria-hidden="true">⌁</span>
+              <span>Instagram</span>
+            </a>
+          </div>
+
+          <div class="trust-row">
+            <div class="trust">
+              <strong>7 Days a Week</strong>
+              <span>Convenience that fits your schedule</span>
+            </div>
+            <div class="trust">
+              <strong>Premium Products</strong>
+              <span>Ceramic boosters, sealants, protectants</span>
+            </div>
+            <div class="trust">
+              <strong>Mobile Service</strong>
+              <span>Home, work, or wherever you are</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card hero-right reveal" aria-label="Hero image">
+          <div class="hero-media" role="img" aria-label="Luxury mobile detailing"></div>
+          <div class="hero-overlay">
+            <div class="mini-card">
+              <div class="mini-top">
+                <strong>Quick Info</strong>
+                <span class="badge"><span aria-hidden="true">✦</span> Luxury Meets Mobility</span>
+              </div>
+              <div style="color:var(--muted); font-size:13px;">
+                We believe the key to an impeccable finish is the quality of products we apply.
+                Advanced ceramic solutions, top-tier waxes, and interior products selected to bring back that new car feel.
+              </div>
+              <div class="mini-list">
+                <div class="mini-item">
+                  <b>Phone</b>
+                  <span>813-385-4583</span>
+                </div>
+                <div class="mini-item">
+                  <b>Service</b>
+                  <span>Mobile Detailing</span>
+                </div>
+                <div class="mini-item">
+                  <b>Availability</b>
+                  <span>7 Days a Week</span>
+                </div>
+                <div class="mini-item">
+                  <b>Coverage</b>
+                  <span>At your location</span>
+                </div>
+              </div>
+
+              <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+                <a class="btn" href="#contact" style="padding:11px 14px; font-size:13px;">Get a Quote</a>
+                <a class="btn secondary" href="#addons" style="padding:11px 14px; font-size:13px;">Add-Ons</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="reveal">Premium Mobile Detailing Service</h2>
+          <p class="reveal">
+            A full range of services tailored to your needs. From exterior handwashing to comprehensive interior restoration,
+            we focus on results that look high-end and feel high-end.
+          </p>
+        </div>
+        <div class="reveal" style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="pill" href="tel:8133854583">Call 813-385-4583</a>
+          <a class="pill" href="#pricing">See Prices</a>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card reveal">
+          <h3>Exterior Care</h3>
+          <p>Gentle hand wash, foam cannon, rims and fenders detailed, ceramic booster or sealant options depending on package.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Interior Restoration</h3>
+          <p>Vacuum, wipe-down, steam cleaning, leather conditioning, shampoo and extraction, and sanitization options.</p>
+        </div>
+        <div class="card reveal">
+          <h3>High-End Products</h3>
+          <p>Industry-leading solutions selected for durability, shine, and that refreshed “new car” feel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="reveal">Packages & Starting Quotes</h2>
+          <p class="reveal">
+            Pricing varies by vehicle size and condition. These are starting quotes.
+            Choose Interior or Exterior, then add Exterior to any Interior package if you want a full detail.
+          </p>
+        </div>
+      </div>
+
+      <div class="tabs reveal" role="tablist" aria-label="Pricing tabs">
+        <div class="tab active" role="tab" tabindex="0" aria-selected="true" data-target="interior">Interior Details</div>
+        <div class="tab" role="tab" tabindex="0" aria-selected="false" data-target="exterior">Exterior Details</div>
+      </div>
+
+      <!-- INTERIOR -->
+      <div id="interior" class="pricing-grid">
+        <div class="price-card reveal">
+          <div class="tier">
+            <b>Bronze</b>
+            <span class="starting">Starting Quote</span>
+          </div>
+          <div class="money">$80 <small>starting</small></div>
+          <ul>
+            <li>Thoroughly vacuum interior</li>
+            <li>Chemical wipe down</li>
+            <li>All interior windows cleaned</li>
+          </ul>
+          <div class="price-foot">
+            <span style="color:var(--muted2); font-size:12px;">Interior Detail</span>
+            <a class="pill" href="#contact">Book</a>
+          </div>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="tier">
+            <b>Silver</b>
+            <span class="starting">Starting Quote</span>
+          </div>
+          <div class="money">$100 <small>starting</small></div>
+          <ul>
+            <li>Thoroughly vacuum interior</li>
+            <li>Chemical wipe down</li>
+            <li>All interior windows cleaned</li>
+            <li>Steam clean interior panels & seats</li>
+          </ul>
+          <div class="price-foot">
+            <span style="color:var(--muted2); font-size:12px;">Interior Detail</span>
+            <a class="pill" href="#contact">Book</a>
+          </div>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="tier">
+            <b>Gold</b>
+            <span class="starting">Starting Quote</span>
+          </div>
+          <div class="money">$120 <small>starting</small></div>
+          <ul>
+            <li>Thoroughly vacuum interior</li>
+            <li>Chemical wipe down</li>
+            <li>All interior windows cleaned</li>
+            <li>High quality protectant on all plastics</li>
+            <li>Clean & condition leather seats (if equipped)</li>
+            <li>Steam clean cloth seats (if equipped)</li>
+          </ul>
+          <div class="price-foot">
+            <span style="color:var(--muted2); font-size:12px;">Interior Detail</span>
+            <a class="pill" href="#contact">Book</a>
+          </div>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="tier">
+            <b>Diamond</b>
+            <span class="starting">Starting Quote</span>
+          </div>
+          <div class="money">$160 <small>starting</small></div>
+          <ul>
+            <li>Thoroughly vacuum interior</li>
+            <li>Steam clean interior</li>
+            <li>Chemical wipe down</li>
+            <li>Interior sanitization</li>
+            <li>High quality protectant on all plastics</li>
+            <li>All interior windows cleaned</li>
+            <li>Shampoo & extract cloth seats (if equipped)</li>
+            <li>Clean & condition leather seats (if equipped)</li>
+            <li>Shampoo & extract interior carpets & mats</li>
+          </ul>
+          <div class="price-foot">
+            <span style="color:var(--muted2); font-size:12px;">Interior Detail</span>
+            <a class="pill" href="#contact">Book</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXTERIOR -->
+      <div id="exterior" class="pricing-grid" style="display:none;">
+        <div class="price-card reveal">
+          <div class="tier">
+            <b>Bronze</b>
+            <span class="starting">Starting Quote</span>
+          </div>
+          <div class="money">$40 <small>starting</small></div>
+          <ul>
+            <li>Rim & inner fender detailed</li>
+            <li>Gentle hand wash</li>
+            <li>Foam cannon</li>
+            <li>Tires dressed</li>
+            <li>Door jambs detailed</li>
+            <li>Fuel door detailed</li>
+            <li>Light ceramic booster on all surfaces</li>
+          </ul>
+          <div class="price-foot">
+            <span style="color:var(--muted2); font-size:12px;">Exterior Detail</span>
+            <a class="pill" href="#contact">Book</a>
+          </div>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="tier">
+            <b>Silver</b>
+            <span class="starting">Starting Quote</span>
+          </div>
+          <div class="money">$70 <small>starting</small></div>
+          <ul>
+            <li>Rim & inner fender detailed</li>
+            <li>Gentle hand wash</li>
+            <li>Foam cannon</li>
+            <li>Door jambs detailed</li>
+            <li>Fuel door detailed</li>
+            <li>Tires dressed</li>
+            <li>High quality sealant on all surfaces</li>
+          </ul>
+          <div class="price-foot">
+            <span style="color:var(--muted2); font-size:12px;">Exterior Detail</span>
+            <a class="pill" href="#contact">Book</a>
+          </div>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="tier">
+            <b>Gold</b>
+            <span class="starting">Starting Quote</span>
+          </div>
+          <div class="money">$120 <small>starting</small></div>
+          <ul>
+            <li>Rim & inner fender detailed</li>
+            <li>Gentle hand wash</li>
+            <li>Foam cannon</li>
+            <li>Clay bar paint</li>
+            <li>Iron decontamination</li>
+            <li>Door jambs detailed</li>
+            <li>Fuel door detailed</li>
+            <li>Tires dressed</li>
+            <li>High quality sealant on all surfaces</li>
+          </ul>
+          <div class="price-foot">
+            <span style="color:var(--muted2); font-size:12px;">Exterior Detail</span>
+            <a class="pill" href="#contact">Book</a>
+          </div>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="tier">
+            <b>Diamond</b>
+            <span class="starting">Starting Quote</span>
+          </div>
+          <div class="money">$150 <small>starting</small></div>
+          <ul>
+            <li>Rim & inner fender detailed</li>
+            <li>Gentle hand wash</li>
+            <li>Foam cannon</li>
+            <li>Clay bar paint</li>
+            <li>Iron decontamination</li>
+            <li>Door jambs detailed</li>
+            <li>Fuel door detailed</li>
+            <li>Tires dressed</li>
+            <li>High quality sealant on all surfaces</li>
+            <li>Engine bay detail</li>
+          </ul>
+          <div class="price-foot">
+            <span style="color:var(--muted2); font-size:12px;">Exterior Detail</span>
+            <a class="pill" href="#contact">Book</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ADD-ONS -->
+  <section id="addons">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="reveal">Add-Ons & Maintenance</h2>
+          <p class="reveal">
+            Add an exterior package to any interior detail. Prices vary by vehicle size. Contact us for monthly or biweekly maintenance details.
+          </p>
+        </div>
+      </div>
+
+      <div class="addons">
+        <div class="card reveal">
+          <h3>Add Exterior to Any Interior Detail</h3>
+          <p style="color:var(--muted); margin-top:-2px;">Prices may vary by vehicle size</p>
+
+          <div class="list-row">
+            <b>Bronze Exterior Add-On</b>
+            <span>+ $40</span>
+          </div>
+          <div class="list-row">
+            <b>Silver Exterior Add-On</b>
+            <span>+ $60</span>
+          </div>
+          <div class="list-row">
+            <b>Gold Exterior Add-On</b>
+            <span>+ $100</span>
+          </div>
+          <div class="list-row">
+            <b>Diamond Exterior Add-On</b>
+            <span>+ $140</span>
+          </div>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn" href="#contact" style="padding:11px 14px; font-size:13px;">Request a Quote</a>
+            <a class="btn secondary" href="tel:8133854583" style="padding:11px 14px; font-size:13px;">Call</a>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3>Popular Add-Ons</h3>
+
+          <div class="list-row">
+            <b>Headliner</b>
+            <span>Starting at $25</span>
+          </div>
+          <div class="list-row">
+            <b>Ozone Treatment</b>
+            <span>$70</span>
+          </div>
+          <div class="list-row">
+            <b>Headlight Restoration</b>
+            <span>Starting at $30 each</span>
+          </div>
+
+          <div class="card soft" style="margin-top: 14px;">
+            <h3 style="margin-bottom:6px;">Maintenance Plans</h3>
+            <p>Contact us for monthly or biweekly maintenance details and we’ll build a plan around your vehicle and schedule.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="reveal">Contact MR Auto Detailers</h2>
+          <p class="reveal">
+            Fast response. Tell us your vehicle type, your location, and what package you want. We’ll confirm a quote and time.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="card contact-card reveal">
+          <div class="contact-media" role="img" aria-label="Contact banner image"></div>
+          <div class="contact-inner">
+            <div class="badge" style="width:max-content;">
+              <span aria-hidden="true">✦</span>
+              <span>Mobile Detailing • 7 Days a Week</span>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn" href="tel:8133854583">
+                <span aria-hidden="true">📞</span>
+                <span>Call 813-385-4583</span>
+              </a>
+              <a class="btn secondary" href="https://www.instagram.com/mr_autodetailers" target="_blank" rel="noreferrer">
+                <span aria-hidden="true">⌁</span>
+                <span>DM on Instagram</span>
+              </a>
+            </div>
+            <p class="fineprint">
+              Replace the background image file: <b>assets/images/contact-banner.jpg</b> with your own banner photo.
+            </p>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3>Request a Quote</h3>
+          <p style="margin-top:-4px; margin-bottom:12px;">
+            This form opens your email with the details filled in. If you want a real booking form later, we can connect it to Google Forms, Popl, or a booking platform.
+          </p>
+
+          <form class="form" id="quoteForm">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input id="name" name="name" placeholder="Your name" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" placeholder="(xxx) xxx-xxxx" autocomplete="tel" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="vehicle">Vehicle</label>
+                <input id="vehicle" name="vehicle" placeholder="Example: 2020 Honda Accord" required />
+              </div>
+              <div class="field">
+                <label for="package">Package</label>
+                <select id="package" name="package" required>
+                  <option value="" disabled selected>Select a package</option>
+                  <option>Bronze Interior</option>
+                  <option>Silver Interior</option>
+                  <option>Gold Interior</option>
+                  <option>Diamond Interior</option>
+                  <option>Bronze Exterior</option>
+                  <option>Silver Exterior</option>
+                  <option>Gold Exterior</option>
+                  <option>Diamond Exterior</option>
+                  <option>Interior + Exterior (Add-On)</option>
+                  <option>Maintenance Plan</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="location">Your Location</label>
+              <input id="location" name="location" placeholder="City / Address area (example: Clearwater, FL)" required />
+            </div>
+
+            <div class="field">
+              <label for="addonsField">Add-Ons (optional)</label>
+              <input id="addonsField" name="addonsField" placeholder="Headliner, Ozone treatment, Headlight restoration, etc." />
+            </div>
+
+            <div class="field">
+              <label for="notes">Notes (optional)</label>
+              <textarea id="notes" name="notes" placeholder="Condition, pet hair, stains, timing preference, etc."></textarea>
+            </div>
+
+            <button class="btn" type="submit">
+              <span aria-hidden="true">✦</span>
+              <span>Send Request</span>
+            </button>
+
+            <p class="fineprint">
+              Business contact: <b>Ribhi Anshassi</b> • MR Auto Detailers • Instagram: <b>@mr_autodetailers</b>
+            </p>
+          </form>
+
+          <div class="card soft" style="margin-top:14px;">
+            <h3 style="margin-bottom:6px;">Digital Business Card</h3>
+            <p style="margin-bottom:10px;">
+              If you use Popl, you can place your card link right here.
+            </p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="pill" href="#" id="poplLink">Add Popl Card Link</a>
+              <a class="pill" href="https://www.instagram.com/mr_autodetailers" target="_blank" rel="noreferrer">Instagram</a>
+            </div>
+            <p class="fineprint" style="margin-top:10px;">
+              Replace the Popl link in the HTML by editing the <b>#poplLink</b> href.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <div class="logo" aria-hidden="true" style="width:34px;height:34px;border-radius:12px;"></div>
+            <div>
+              <div style="font-weight:700; color:rgba(255,255,255,.88);">MR Auto Detailers</div>
+              <div style="font-size:12px; color:var(--muted2); margin-top:2px;">Luxury Mobile Auto Detailing</div>
+            </div>
+          </div>
+
+          <div style="max-width:80ch;">
+            Your vehicle gets the VIP treatment it deserves. Premium products, professional results, and mobile convenience—7 days a week.
+          </div>
+
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="pill" href="tel:8133854583">813-385-4583</a>
+            <a class="pill" href="#pricing">Packages</a>
+            <a class="pill" href="#contact">Contact</a>
+          </div>
+
+          <div style="margin-top:12px; font-size:12px; color:var(--muted2);">
+            © <span id="year"></span> MR Auto Detailers. All rights reserved.
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#pricing">Prices</a>
+          <a href="#addons">Add-Ons</a>
+          <a href="https://www.instagram.com/mr_autodetailers" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    if(menuBtn){
+      menuBtn.addEventListener("click", () => {
+        const open = mobileMenu.style.display === "block";
+        mobileMenu.style.display = open ? "none" : "block";
+        menuBtn.textContent = open ? "Menu" : "Close";
+      });
+    }
+
+    // Tabs (Interior / Exterior)
+    const tabs = document.querySelectorAll(".tab");
+    const interior = document.getElementById("interior");
+    const exterior = document.getElementById("exterior");
+
+    function setTab(target){
+      tabs.forEach(t => {
+        const active = t.dataset.target === target;
+        t.classList.toggle("active", active);
+        t.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      if(target === "interior"){
+        interior.style.display = "grid";
+        exterior.style.display = "none";
+      } else {
+        interior.style.display = "none";
+        exterior.style.display = "grid";
+      }
+      // Scroll the pricing section into view nicely when switching
+      document.getElementById("pricing").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    tabs.forEach(t => {
+      t.addEventListener("click", () => setTab(t.dataset.target));
+      t.addEventListener("keydown", (e) => {
+        if(e.key === "Enter" || e.key === " "){
+          e.preventDefault();
+          setTab(t.dataset.target);
+        }
+      });
+    });
+
+    // Quote form: opens email with filled in details
+    const quoteForm = document.getElementById("quoteForm");
+    if(quoteForm){
+      quoteForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const vehicle = document.getElementById("vehicle").value.trim();
+        const pkg = document.getElementById("package").value;
+        const location = document.getElementById("location").value.trim();
+        const addons = document.getElementById("addonsField").value.trim();
+        const notes = document.getElementById("notes").value.trim();
+
+        // Replace this email with your business email when ready:
+        const businessEmail = "mr.autodetailers@example.com";
+
+        const subject = encodeURIComponent(`Detail Quote Request - ${name} (${pkg})`);
+        const body = encodeURIComponent(
+`Name: ${name}
+Phone: ${phone}
+Vehicle: ${vehicle}
+Package: ${pkg}
+Location: ${location}
+Add-ons: ${addons || "None"}
+Notes: ${notes || "None"}
+
+Preferred day/time: `
+        );
+
+        window.location.href = `mailto:${businessEmail}?subject=${subject}&body=${body}`;
+      });
+    }
+
+    // Year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if(!id || id === "#") return;
+        const el = document.querySelector(id);
+        if(!el) return;
+        e.preventDefault();
+        mobileMenu && (mobileMenu.style.display = "none");
+        menuBtn && (menuBtn.textContent = "Menu");
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+
+  <!--
+    IMPORTANT: IMAGE FILES YOU SHOULD ADD
+
+    Put your images here:
+    /assets/images/
+
+    Recommended names:
+    - hero-banner.jpg         (main banner image in hero card)
+    - contact-banner.jpg      (contact section banner)
+    - mr-auto-detailers-logo.png (optional, replace the placeholder logo div)
+
+    If you have an owner profile image:
+    - ribhi-anshassi-profile.jpg
+
+    If you want service images later:
+    - interior-detailing.jpg
+    - exterior-detailing.jpg
+    - foam-cannon-wash.jpg
+    - engine-bay-detail.jpg
+  -->
+</body>
+</html>

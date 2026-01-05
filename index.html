@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>MR Auto Detailers | Premium Mobile Detailing</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,10 +12,24 @@
 
     <style>
         :root { --gold: #D4AF37; --dark: #0a0a0a; --silver: #e5e7eb; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--dark); color: #d1d5db; overflow-x: hidden; }
         
-        /* Typography Updates */
+        /* FIXED: Added strict overflow and touch-action to stop mobile "wiggle" */
+        html, body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--dark); 
+            color: #d1d5db; 
+            overflow-x: hidden; 
+            width: 100%;
+            position: relative;
+            touch-action: pan-y;
+        }
+        
         h1, h2, h3, .luxury { font-family: 'Playfair Display', serif; }
+        
+        /* FIXED: Tightened brand spacing for MR AUTO */
+        .brand-text { letter-spacing: 0.1em; }
+        .tagline-spacing { letter-spacing: 0.35em; }
+
         .hero-title { 
             font-family: 'Playfair Display', serif;
             letter-spacing: -0.02em;
@@ -26,19 +40,16 @@
         .text-gold { color: var(--gold); }
         .bg-gold { background-color: var(--gold); }
         .border-gold { border-color: var(--gold); }
-        .brand-spacing { letter-spacing: 0.25em; }
 
-        /* Premium Blur Effects */
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
 
-        /* SMOOTH HERO MOSAIC STYLES */
-        .hero-bg { position: relative; overflow: hidden; background: black; }
+        /* FIXED: Dynamic Viewport Height for mobile browsers */
+        .hero-bg { position: relative; overflow: hidden; background: black; height: 100dvh; width: 100vw; }
         .hero-mosaic { filter: saturate(1.1) contrast(1.1); }
         .hero-tile {
             background-size: cover;
             background-position: center;
             opacity: 0;
-            /* Increased duration and changed timing for smoothness */
             transition: opacity 1.5s ease-in-out; 
             position: relative;
         }
@@ -84,10 +95,10 @@
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 px-6">
         <div class="max-w-7xl mx-auto flex justify-between items-center gap-4">
             <a href="#home" class="group cursor-pointer">
-                <h1 class="text-white text-lg md:text-2xl font-bold uppercase luxury brand-spacing">
-                    MR   AUTO <span class="text-gold">DETAILERS</span>
+                <h1 class="text-white text-lg md:text-2xl font-bold uppercase luxury brand-text">
+                    MR AUTO <span class="text-gold">DETAILERS</span>
                 </h1>
-                <p class="text-[9px] tracking-[0.5em] text-gray-500 uppercase font-semibold group-hover:text-gold transition mt-1">
+                <p class="text-[8px] md:text-[9px] tagline-spacing text-gray-500 uppercase font-semibold group-hover:text-gold transition mt-1">
                     Mobile Professionals
                 </p>
             </a>
@@ -106,7 +117,7 @@
         </div>
     </nav>
 
-    <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-6">
+    <section id="home" class="hero-bg flex items-center justify-center text-center px-6">
         <div class="absolute inset-0">
             <div class="grid h-full w-full grid-cols-2 grid-rows-2 hero-mosaic">
                 <div class="hero-tile" id="tile0"></div>
@@ -329,7 +340,7 @@
     </section>
 
     <footer class="py-20 px-6 border-t border-white/5 bg-black text-center">
-        <h4 class="luxury text-white text-2xl uppercase brand-spacing mb-4">MR   AUTO <span class="text-gold">DETAILERS</span></h4>
+        <h4 class="luxury text-white text-2xl uppercase brand-text mb-4">MR AUTO <span class="text-gold">DETAILERS</span></h4>
         <p class="text-[9px] text-zinc-700 uppercase tracking-[0.4em]">© 2024 MR AUTO DETAILERS.</p>
     </footer>
 
@@ -373,19 +384,14 @@
 
             function render() {
                 const start = pageIndex * pageSize;
-                
-                // 1. Start fading out
                 tiles.forEach(t => t.classList.remove("is-active"));
-
-                // 2. Wait for fade out, then swap and fade in
                 setTimeout(() => {
                     for (let t = 0; t < tiles.length; t++) {
                         const img = images[(start + t) % images.length];
                         tiles[t].style.backgroundImage = `url('${img}')`;
                     }
                     tiles.forEach(t => t.classList.add("is-active"));
-                }, 1000); // Wait for half the transition time before swapping images
-
+                }, 1000); 
                 [...dotsWrap.children].forEach((d, i) => d.classList.toggle("is-active", i === pageIndex));
             }
 

@@ -6,41 +6,48 @@
     <title>MR Auto Detailers | Premium Mobile Detailing</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        :root { --gold: #D4AF37; --dark: #0a0a0a; }
+        :root { --gold: #D4AF37; --dark: #0a0a0a; --silver: #e5e7eb; }
         body { font-family: 'Inter', sans-serif; background-color: var(--dark); color: #d1d5db; overflow-x: hidden; }
+        
+        /* Typography Updates */
         h1, h2, h3, .luxury { font-family: 'Playfair Display', serif; }
+        .hero-title { 
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.02em;
+            color: var(--silver);
+            line-height: 1.1;
+        }
+
         .text-gold { color: var(--gold); }
         .bg-gold { background-color: var(--gold); }
         .border-gold { border-color: var(--gold); }
-        .gold-text { color: var(--gold); }
-
-        /* Spaced out Branding */
         .brand-spacing { letter-spacing: 0.25em; }
 
         /* Premium Blur Effects */
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
 
-        /* HERO MOSAIC STYLES */
-        .hero-bg { position: relative; overflow: hidden; }
-        .hero-mosaic { filter: saturate(1.05) contrast(1.05); }
+        /* SMOOTH HERO MOSAIC STYLES */
+        .hero-bg { position: relative; overflow: hidden; background: black; }
+        .hero-mosaic { filter: saturate(1.1) contrast(1.1); }
         .hero-tile {
             background-size: cover;
             background-position: center;
             opacity: 0;
-            transform: scale(1.03);
-            transition: opacity 800ms ease, transform 1200ms ease;
+            /* Increased duration and changed timing for smoothness */
+            transition: opacity 1.5s ease-in-out; 
+            position: relative;
         }
-        .hero-tile.is-active { opacity: 1; transform: scale(1); }
+        .hero-tile.is-active { opacity: 1; }
 
         .hero-overlay {
             background:
-                radial-gradient(1200px 800px at 50% 40%, rgba(0,0,0,0.15), rgba(0,0,0,0.85)),
-                linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.95));
+                radial-gradient(1200px 800px at 50% 40%, rgba(0,0,0,0.1), rgba(0,0,0,0.9)),
+                linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,1));
         }
 
         .nav-scrolled { background: rgba(0,0,0,0.95); border-bottom: 1px solid rgba(212, 175, 55, 0.3); }
@@ -53,28 +60,22 @@
             justify-content: center;
         }
 
-        .hero-dots {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
+        .hero-dots { display: flex; gap: 12px; align-items: center; }
         .hero-dot {
-            width: 10px; height: 10px;
+            width: 8px; height: 8px;
             border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.35);
-            background: rgba(255,255,255,0.10);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
             cursor: pointer;
         }
         .hero-dot.is-active {
             background: var(--gold);
             border-color: var(--gold);
-            transform: scale(1.3);
+            transform: scale(1.4);
         }
 
-        @media (max-width: 640px) {
-            .hero-controls { bottom: 30px; }
-        }
+        @media (max-width: 640px) { .hero-controls { bottom: 30px; } }
     </style>
 </head>
 
@@ -84,7 +85,7 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center gap-4">
             <a href="#home" class="group cursor-pointer">
                 <h1 class="text-white text-lg md:text-2xl font-bold uppercase luxury brand-spacing">
-                    MR &nbsp; AUTO <span class="text-gold">DETAILERS</span>
+                    MR   AUTO <span class="text-gold">DETAILERS</span>
                 </h1>
                 <p class="text-[9px] tracking-[0.5em] text-gray-500 uppercase font-semibold group-hover:text-gold transition mt-1">
                     Mobile Professionals
@@ -116,21 +117,21 @@
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
-        <div class="relative z-10" data-aos="fade-up" data-aos-duration="1000">
-            <h2 class="text-gold uppercase tracking-[0.6em] text-[10px] md:text-xs mb-6">
+        <div class="relative z-10" data-aos="fade-up" data-aos-duration="1200">
+            <h2 class="text-gold uppercase tracking-[0.7em] text-[9px] md:text-[11px] mb-8 font-semibold">
                 Precision & Luxury Mobility
             </h2>
-            <h1 class="text-5xl md:text-8xl text-white luxury italic mb-8 leading-tight">
+            <h1 class="hero-title text-5xl md:text-8xl italic mb-10">
                 Your Vehicle, <br>Our Expertise.
             </h1>
-            <p class="max-w-xl mx-auto text-gray-300/90 font-light text-base md:text-lg mb-10 leading-relaxed italic">
+            <p class="max-w-xl mx-auto text-gray-400 font-light text-base md:text-lg mb-12 leading-relaxed italic tracking-wide">
                 Detailing is an art form. We bring the gallery to your driveway.
             </p>
-            <div class="flex flex-wrap justify-center gap-4 md:gap-6">
-                <a href="#services" class="border border-gold text-gold px-10 md:px-12 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-gold hover:text-black transition">
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <a href="#services" class="border border-gold text-gold px-10 md:px-14 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-gold hover:text-black transition duration-500">
                     Explore Suites
                 </a>
-                <a href="#contact" class="bg-white text-black px-10 md:px-12 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-gold hover:border-gold transition">
+                <a href="#contact" class="bg-white text-black px-10 md:px-14 py-4 uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-gold hover:border-gold transition duration-500">
                     Reserve Now
                 </a>
             </div>
@@ -166,9 +167,9 @@
                     <h4 class="text-white luxury italic text-2xl mb-1">Bronze</h4>
                     <p class="text-gold font-bold mb-8 text-xl">$80</p>
                     <ul class="text-[12px] uppercase tracking-widest space-y-4 text-gray-400">
-                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Vacuum Interior</li>
-                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Chemical Wipe</li>
-                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Clean Windows</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Vacuum Interior</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Chemical Wipe</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Clean Windows</li>
                     </ul>
                 </div>
 
@@ -176,10 +177,10 @@
                     <h4 class="text-white luxury italic text-2xl mb-1">Silver</h4>
                     <p class="text-gold font-bold mb-8 text-xl">$100</p>
                     <ul class="text-[12px] uppercase tracking-widest space-y-4 text-gray-400">
-                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Vacuum Interior</li>
-                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Chemical Wipe</li>
-                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Clean Windows</li>
-                        <li class="text-white italic"><i class="fa-solid fa-plus gold-text mr-2"></i> Steam Clean Seats</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Vacuum Interior</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Chemical Wipe</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Clean Windows</li>
+                        <li class="text-white italic"><i class="fa-solid fa-plus text-gold mr-2"></i> Steam Clean Seats</li>
                     </ul>
                 </div>
 
@@ -187,10 +188,10 @@
                     <h4 class="text-white luxury italic text-2xl mb-1">Gold</h4>
                     <p class="text-gold font-bold mb-8 text-xl">$120</p>
                     <ul class="text-[12px] uppercase tracking-widest space-y-4 text-gray-400">
-                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Silver Features</li>
-                        <li class="text-white"><i class="fa-solid fa-plus gold-text mr-2"></i> Plastic Protectant</li>
-                        <li class="text-white"><i class="fa-solid fa-plus gold-text mr-2"></i> Leather Condition</li>
-                        <li class="text-white"><i class="fa-solid fa-plus gold-text mr-2"></i> Steam Cloth Seats</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Silver Features</li>
+                        <li class="text-white"><i class="fa-solid fa-plus text-gold mr-2"></i> Plastic Protectant</li>
+                        <li class="text-white"><i class="fa-solid fa-plus text-gold mr-2"></i> Leather Condition</li>
+                        <li class="text-white"><i class="fa-solid fa-plus text-gold mr-2"></i> Steam Cloth Seats</li>
                     </ul>
                 </div>
 
@@ -199,9 +200,9 @@
                     <p class="text-gold font-bold mb-8 text-xl">$160</p>
                     <ul class="text-[11px] uppercase tracking-widest space-y-4 text-gray-400">
                         <li class="text-white italic tracking-tighter">The Ultimate Rebirth</li>
-                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Interior Sanitize</li>
-                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Shampoo/Extract Seats</li>
-                        <li><i class="fa-solid fa-check gold-text mr-2"></i> Carpet Extraction</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Interior Sanitize</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Shampoo/Extract Seats</li>
+                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Carpet Extraction</li>
                     </ul>
                 </div>
             </div>
@@ -285,27 +286,6 @@
                 <p class="text-gold uppercase tracking-[0.4em] text-[10px] font-bold">Real Clients • Real Results</p>
             </div>
 
-            <div class="mb-16" data-aos="fade-up">
-                <div class="flex items-center justify-between mb-6 flex-wrap gap-4">
-                    <h3 class="text-white luxury text-2xl italic">Instagram Preview</h3>
-                    <a href="https://www.instagram.com/mr_autodetailers/" target="_blank" class="text-gold uppercase tracking-widest text-xs hover:underline">Visit @mr_autodetailers →</a>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <a href="https://www.instagram.com/mr_autodetailers/" target="_blank" class="block bg-zinc-900 aspect-square overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Detail 1">
-                    </a>
-                    <a href="https://www.instagram.com/mr_autodetailers/" target="_blank" class="block bg-zinc-900 aspect-square overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Detail 2">
-                    </a>
-                    <a href="https://www.instagram.com/mr_autodetailers/" target="_blank" class="block bg-zinc-900 aspect-square overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Detail 3">
-                    </a>
-                    <a href="https://www.instagram.com/mr_autodetailers/" target="_blank" class="block bg-zinc-900 aspect-square overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Detail 4">
-                    </a>
-                </div>
-            </div>
-
             <div class="grid md:grid-cols-2 gap-4" data-aos="fade-up">
                 <div class="glass p-8">
                     <div class="flex justify-between items-center mb-3">
@@ -321,13 +301,6 @@
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed italic">"Awesome car detailing. The owner is all about attention to detail. Super friendly, and he will come to you anywhere."</p>
                 </div>
-                <div class="glass p-8 md:col-span-2 flex justify-between items-center flex-wrap gap-6">
-                    <div>
-                        <h4 class="text-white font-bold">Trusted by the community.</h4>
-                        <p class="text-gray-500 text-sm">Check our latest ratings on Google Maps.</p>
-                    </div>
-                    <a href="https://maps.app.goo.gl/Qw4Ccsef5uBQ8RDh8" target="_blank" class="bg-gold text-black px-8 py-3 font-black uppercase tracking-widest text-[10px] hover:scale-105 transition">Leave A Review</a>
-                </div>
             </div>
         </div>
     </section>
@@ -341,20 +314,13 @@
                     <div class="space-y-4">
                         <p class="text-2xl text-white luxury tracking-widest italic">813.385.4583</p>
                         <div class="h-px w-full bg-white/5"></div>
-                        <p class="text-[10px] uppercase tracking-[0.5em] text-gray-500">Service Hours: 7am - 7pm</p>
                     </div>
                 </div>
                 <div class="glass p-12" data-aos="fade-left">
                     <form class="space-y-6">
                         <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 p-4 outline-none focus:border-gold text-white text-sm">
                         <input type="tel" placeholder="Phone" class="w-full bg-white/5 border border-white/10 p-4 outline-none focus:border-gold text-white text-sm">
-                        <select class="w-full bg-white/5 border border-white/10 p-4 outline-none focus:border-gold text-gray-500 text-sm">
-                            <option>Select A Package</option>
-                            <option>Interior Suite</option>
-                            <option>Exterior Suite</option>
-                            <option>Full Transformation</option>
-                        </select>
-                        <textarea placeholder="Vehicle Year, Make, & Model" rows="4" class="w-full bg-white/5 border border-white/10 p-4 outline-none focus:border-gold text-white text-sm"></textarea>
+                        <textarea placeholder="Vehicle Details" rows="4" class="w-full bg-white/5 border border-white/10 p-4 outline-none focus:border-gold text-white text-sm"></textarea>
                         <button type="button" class="w-full bg-white text-black font-black uppercase tracking-[0.3em] py-5 hover:bg-gold transition">Request Availability</button>
                     </form>
                 </div>
@@ -362,29 +328,21 @@
         </div>
     </section>
 
-    <footer class="py-20 px-6 border-t border-white/5 bg-black">
-        <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
-            <h4 class="luxury text-white text-2xl uppercase brand-spacing mb-4">MR &nbsp; AUTO <span class="text-gold">DETAILERS</span></h4>
-            <p class="text-[10px] text-gray-600 uppercase tracking-[0.5em] mb-12 italic font-semibold">The Gold Standard of Mobile Detailing</p>
-            <div class="flex flex-wrap justify-center gap-10 mb-12 text-gray-400">
-                <a href="https://www.instagram.com/mr_autodetailers/" target="_blank" class="hover:text-gold transition"><i class="fa-brands fa-instagram text-xl"></i></a>
-                <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-google text-xl"></i></a>
-                <a href="tel:8133854583" class="hover:text-gold transition"><i class="fa-solid fa-phone text-xl"></i></a>
-            </div>
-            <p class="text-[9px] text-zinc-800 uppercase tracking-[0.4em]">© 2024 MR AUTO DETAILERS. PRODUCED BY LUXURY DETAILING MEDIA.</p>
-        </div>
+    <footer class="py-20 px-6 border-t border-white/5 bg-black text-center">
+        <h4 class="luxury text-white text-2xl uppercase brand-spacing mb-4">MR   AUTO <span class="text-gold">DETAILERS</span></h4>
+        <p class="text-[9px] text-zinc-700 uppercase tracking-[0.4em]">© 2024 MR AUTO DETAILERS.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ once: true, duration: 800 });
+        AOS.init({ once: true, duration: 1000 });
+        
         window.onscroll = function () {
             var nav = document.getElementById('navbar');
             if (window.pageYOffset > 100) { nav.classList.add("nav-scrolled"); nav.style.padding = "12px 24px"; }
             else { nav.classList.remove("nav-scrolled"); nav.style.padding = "24px 24px"; }
         };
 
-        // HERO MOSAIC SLIDESHOW SCRIPT
         (function () {
             const images = [
                 "./detail.1.jpg", "./detail.2.jpg", "./detail.3.jpg", "./detail.4.jpg",
@@ -403,40 +361,40 @@
             const pageCount = Math.ceil(images.length / pageSize);
             let pageIndex = 0;
             let timer = null;
-            const intervalMs = 4500;
 
             function buildDots() {
-                dotsWrap.innerHTML = "";
                 for (let i = 0; i < pageCount; i++) {
                     const dot = document.createElement("button");
                     dot.className = "hero-dot";
-                    dot.addEventListener("click", () => { pageIndex = i; render(); restart(); });
+                    dot.onclick = () => { pageIndex = i; render(); resetTimer(); };
                     dotsWrap.appendChild(dot);
                 }
             }
 
             function render() {
                 const start = pageIndex * pageSize;
-                for (let t = 0; t < tiles.length; t++) {
-                    const img = images[(start + t) % images.length];
-                    tiles[t].style.backgroundImage = `url('${img}')`;
-                }
-                tiles.forEach(tile => {
-                    tile.classList.remove("is-active");
-                    void tile.offsetWidth;
-                    tile.classList.add("is-active");
-                });
+                
+                // 1. Start fading out
+                tiles.forEach(t => t.classList.remove("is-active"));
+
+                // 2. Wait for fade out, then swap and fade in
+                setTimeout(() => {
+                    for (let t = 0; t < tiles.length; t++) {
+                        const img = images[(start + t) % images.length];
+                        tiles[t].style.backgroundImage = `url('${img}')`;
+                    }
+                    tiles.forEach(t => t.classList.add("is-active"));
+                }, 1000); // Wait for half the transition time before swapping images
+
                 [...dotsWrap.children].forEach((d, i) => d.classList.toggle("is-active", i === pageIndex));
             }
 
             function next() { pageIndex = (pageIndex + 1) % pageCount; render(); }
-            function startAuto() { stopAuto(); timer = setInterval(next, intervalMs); }
-            function stopAuto() { if (timer) clearInterval(timer); }
-            function restart() { startAuto(); }
+            function resetTimer() { clearInterval(timer); timer = setInterval(next, 6000); }
 
             buildDots();
             render();
-            startAuto();
+            timer = setInterval(next, 6000);
         })();
     </script>
 </body>
